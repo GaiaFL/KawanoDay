@@ -1,6 +1,6 @@
 ﻿# The script of the game goes in this file.
 
-#personagens
+#characters
 define k = Character("Kawano")
 define f = Character("Flocos", color='#a59b9a')
 define f_amarelo = Character("Furry Amarelo", color='#fab30b')
@@ -9,14 +9,15 @@ define a = Character("Atena", color='#603e92')
 define shun = Character("Shun", color='#45e79b')
 define elsa = Character("Elsa", color='#e70251')
 define anna = Character("Anna", color='#e70251')
+define relam = Character("Relâmpago Marquinhos", color='#d8301e')
 define darth = Character("Darth Vader", color='#b7a7cc')
 define robbie = Character("Robbie Rotten", color='#b7a7cc')
 
-#imagens personagens
+#characters that moves
 image FCK = Image("FlocosCageKawano.png")
 image ST = Image("Sportacus.png")
 
-#cenários
+#scenarios
 image black = Image("black.png")
 image white = Image("white.png")
 image C1 = Image("F 1.jpg")
@@ -77,10 +78,26 @@ image C54 = Image("F 54.jpg")
 image C58 = Image("F 58.jpg")
 image C59 = Image("F 59.jpg")
 
+image C61 = Image("F 61.jpg")
+
+#pokemon scenes
+image P1 = Image("Pokemon/01.jpg")
+image P2 = Image("Pokemon/02.jpg")
+image P3 = Image("Pokemon/03.jpg")
+image P4 = Image("Pokemon/04.jpg")
+image P5 = Image("Pokemon/05.jpg")
+image P6 = Image("Pokemon/06.jpg")
+image P7 = Image("Pokemon/07.jpg")
+image P8 = Image("Pokemon/08.jpg")
+image P9 = Image("Pokemon/09.jpg")
+image P10 = Image("Pokemon/10.jpg")
+image P11 = Image("Pokemon/11.jpg")
+
 init python:
     config.use_cpickle = False
     config.save_dump = True
 
+#flocos, kawano and cage movements
 transform my_left:
     xalign 0.0
     yalign 1.0
@@ -93,6 +110,7 @@ transform my_center:
     xalign 0.7
     yalign 1.0 
 
+#sportacus movements
 transform sp_left:     
     xalign 0.0
     yalign -0.5 
@@ -107,6 +125,7 @@ transform sp_right:
 
 # Inicio
 label start:
+    stop music fadeout 1.0
     #1
     play music "audio/Musics/1 Abertura 20th Century Fox.mp3"
     scene C1
@@ -188,11 +207,33 @@ label start:
 label pokemon:
     play music "audio/Musics/5 Pokemon Battle music.mp3"
     #17
+    scene P1 with fade
+    pause 3
+    scene P2 with vpunch
+    pause 3
+    scene P3 with vpunch
+    pause 3
+    scene P4 with dissolve
+    pause 3
+    scene P5 with fade
+    pause 3
+    scene P6 with pixellate
+    pause 3
+    scene P7 with dissolve
+    pause 3
+    scene P8 with fade
+    pause 3
+    scene P9 with hpunch
+    pause 3
+    scene P10 with hpunch
+    pause 3
+    scene P11 with dissolve
+    pause 3
         
 
     #18
     play music "audio/Musics/6 Victory music Pokemon.mp3"
-    scene C18 with dissolve
+    scene C18 with irisout
     k "Eu venci! Me devolva o Flocos"
     f_amarelo "Me desculpe…{w}\nEstava me sentindo sozinho e Flocos parecia ser um grande amigo"
     k "Puxa…{w}Está tudo bem?"
@@ -365,11 +406,15 @@ label neve:
 
     #44
     scene C44 with dissolve
-    pause 2
+    relam "CATCHAU!"
+    "Todos" "Relâmpago Marquinhos!"
+    k "Ele é a velocidade!"
+    relam "CATCHAU! Me sigam!"
+
 
     #45
     scene C45 with wipeleft
-    pause 3
+    relam "CATCHAU! É hora de partir!"
 
     #46
     scene C46 with pixellate
@@ -418,6 +463,7 @@ label neve:
     pause 2
     
     #57
+    hide ST
     robbie "Esse sportacus me paga!{w}\nMas tudo bem, eu sei onde conseguir mais, é no ponto de encontro."
 
     #58
@@ -434,7 +480,7 @@ label neve:
 
     #61
     play music "audio/Musics/15 Evangelion 8 bits.mp3"
-    scene saraiva
+    scene C61 with dissolve
     "Todos" "Você chegou, Kawano!"
     "Todos" "Bora tirar uma foto!"
 

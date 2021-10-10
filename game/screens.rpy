@@ -294,8 +294,12 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        if renpy.get_screen("main_menu"):
+            xalign 0.5
+            yalign 0.85
+        else:
+            xoffset 60    
+            yalign 0.5
 
         spacing gui.navigation_spacing
 
@@ -341,6 +345,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
+    xalign 0.5
 
 
 ## Main Menu screen ############################################################
@@ -386,7 +391,7 @@ style main_menu_frame:
     xsize 280
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -652,7 +657,7 @@ screen file_slots(title):
             hbox:
                 style_prefix "page"
 
-                xalign 0.5
+                xalign 0.8
                 yalign 1.0
 
                 spacing gui.page_spacing
