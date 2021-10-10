@@ -6,10 +6,15 @@ define f = Character("Flocos", color='#a59b9a')
 define f_amarelo = Character("Furry Amarelo", color='#fab30b')
 define n = Character("Nicolas Cage", color='#71262a')
 define a = Character("Atena", color='#603e92')
-define s = Character("Shun", color='#101f19')
+define shun = Character("Shun", color='#45e79b')
 define elsa = Character("Elsa", color='#e70251')
 define anna = Character("Anna", color='#e70251')
-define darth = Character("Darth Vader", color='#030303')
+define darth = Character("Darth Vader", color='#b7a7cc')
+define robbie = Character("Robbie Rotten", color='#b7a7cc')
+
+#imagens personagens
+image FCK = Image("FlocosCageKawano.png")
+image ST = Image("Sportacus.png")
 
 #cenários
 image black = Image("black.png")
@@ -76,6 +81,30 @@ init python:
     config.use_cpickle = False
     config.save_dump = True
 
+transform my_left:
+    xalign 0.0
+    yalign 1.0
+
+transform my_right:
+    xalign 1.5
+    yalign 1.0  
+
+transform my_center:
+    xalign 0.7
+    yalign 1.0 
+
+transform sp_left:     
+    xalign 0.0
+    yalign -0.5 
+
+transform sp_center:     
+    xalign 0.7
+    yalign -0.5 
+
+transform sp_right:     
+    xalign 1.3
+    yalign 1.0
+
 # Inicio
 label start:
     #1
@@ -120,8 +149,11 @@ label start:
 
     #11
     scene C11 with fade
+    play sound "audio/Estralo Limp.mp3"
+    pause 2
 
     #12
+    stop sound
     scene C12 with vpunch
     k "AAAAAAAAAAAAAAAA"
 
@@ -192,7 +224,7 @@ label pokemon:
 
     #23
     scene C23 with wipeleft
-    pause 3
+    k "Vamos seguir a luz! {w}O que poderia dar errado ?"
 
     #24
     scene C24 with fade
@@ -204,6 +236,10 @@ label pokemon:
 
     #26
     scene C26 with dissolve
+    a "Olá!"
+    k "Atena! {w}O que você está fazendo aqui?"
+    a "Eu que pergunto, o que fazem aqui?"
+    k "Estamos procurando nesfit e suco de laranja."
 
     #27
     scene C27 with dissolve
@@ -213,19 +249,29 @@ label pokemon:
 
     #28
     scene C28 with dissolve
-    pause 1
+    show FCK at my_left with dissolve
+    pause 2
+    show FCK at my_center with dissolve
+    pause 2
+    show FCK at my_right with dissolve
+    pause 2
 
     #29
     scene C29 with wipeleft
+    k "Shun! Finalmente encontramos você!"
+    k "Atena pediu para te entregar isso!"
+    shun "Obrigado, Kawano! {w}Já estava na hora de fazer um retoque mesmo rs rs"
+    k "De nada!"
 
     #30
     scene C30 with wipeleft
+    k "Que frio congelante!"
 
     #31
     scene C31 with fade
     k "Ah, não! Olha o que aconteceu!"
-    s "Corram!{w}\nDeixem que eu cuido dele!"
-    s "Antes que seja tarde demais!"
+    shun "Corram!{w}\nDeixem que eu cuido dele!"
+    shun "Antes que seja tarde demais!"
 
     menu:
         "Partir, e deixar o Shun cuidar do Nicolas Cage":
@@ -241,19 +287,31 @@ label neve:
 
     #33
     scene C33 with dissolve 
-    pause 2
+    elsa "Kawano, você chegou!"
+    anna "Aah, finalmente! {w}Vamos logo para dentro."
+    k "Para dentro?"
+    elsa "É, para o castelo!"
 
     #34
     scene C34 with wipeleft
-    pause 3
+    anna "Chegamos!"
+    k "Vocês moram aqui? {w}Desde quando isso aconteceu?"
+    elsa "Ué, Kawano, você não lembra?"
+    anna "Eu sei o que pode refrescar a memória dele!"
+    "[elsa] & [anna]" "Assistir Sailor Moon juntos!"
     scene C34_1 with wipeleft
-    pause 3
+    k "...."
+    k "É...{w}é tão lindo!"
     scene C34_2 with wipeleft
-    pause 3
+    elsa "Mas Kawano, daonde você tirou essa roupa?"
+    anna "Acho que está na hora de nós nos transformarmos também, irmã!"
 
     #35
     play sound "audio/fire-1.ogg" 
     scene C35 with fade
+    elsa "Bem melhor"
+    k "Nossa, é por causa do terno ou tá ficando quente?"
+    anna "Ah, não, será que isso é culpa dela, irmã?"
     elsa "Isso é coisa da Moana!\n{w}Ela é a favor do aquecimento global para que todo o planeta tenha apenas mar para ela poder navegar!"
 
     #36
@@ -271,20 +329,20 @@ label neve:
 
     #37
     stop sound
-    play sound "audio/shimmer_1.flac"
     scene C37 with fade
+    play sound "audio/Socos.mp3"
+    pause 2
 
     #38
     stop sound
     play sound "audio/VistulaShort.mp3"
     scene C38 with dissolve
     k "Meu trabalho aqui está feito."
-    "[elsa] & [anna]" "Mas você não fez nada!"
 
     #39
     stop sound
     scene C39 with dissolve
-    pause 3
+    "[elsa] & [anna]" "Mas você não fez nada!"
     scene C39_1 with dissolve
     pause 3
 
@@ -340,24 +398,31 @@ label neve:
     #53
     play music "audio/Musics/14 We are number 1 8bits.mp3"
     scene C53 with fade
-    darth "O Robbie Rotten!"
+    robbie "O Robbie Rotten!"
 
     #54
     scene C54 with dissolve
     pause 2
 
     #55
-    darth "Agora, se me dá licença, eu vou comer o meu bolo."
+    robbie "Agora, se me dá licença, eu vou comer o meu bolo."
 
     #56
+    scene C54 with dissolve
+    show ST at sp_left with dissolve
+    pause 2
+    show ST at sp_center with dissolve
+    pause 2
     scene C53 with dissolve
-
+    show ST at sp_right with dissolve
+    pause 2
+    
     #57
-    darth "Esse sportacus me paga!{w}\nMas tudo bem, eu sei onde conseguir mais, é no ponto de encontro."
+    robbie "Esse sportacus me paga!{w}\nMas tudo bem, eu sei onde conseguir mais, é no ponto de encontro."
 
     #58
     scene C58 with wipeleft 
-    darth "É aqui."
+    robbie "É aqui."
 
     #59
     scene C59 with fade
