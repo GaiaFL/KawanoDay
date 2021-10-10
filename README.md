@@ -12,5 +12,10 @@ And on the command prompt, use the command "git clone + (address you copied)", l
 After downloading the repository on your local machine, choose one of executables depending on your system, if is 32x (32.exe) or 64x(.exe):  
 ![image](https://user-images.githubusercontent.com/41387704/136678282-9f569354-ff26-44b6-9e31-564e4ff708c2.png)
 
+
 Have a good time!
 ![image](https://user-images.githubusercontent.com/41387704/136678520-21d18594-b28e-4829-b715-39721e624bea.png)
+
+# For futures updates
+Just use the command "git pull" on the game directory:
+![image](https://user-images.githubusercontent.com/41387704/136678616-2134ed83-300b-47c2-a86c-6ecdae9b7909.png)
